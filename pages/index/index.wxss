@@ -1,0 +1,47 @@
+/**index.wxss**/
+#contentSection {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding : 10px;
+}
+#addSection {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-self: center;
+  position :absolute;
+  bottom : 30px;
+
+}
+#addInput {
+  display: flex;
+  border : 1rpx solid palegreen;
+  height : 30px;
+  width : 70%;
+}
+#addButton {
+  display : flex;
+
+}
+.labelText {
+  font-size :14px
+}
+.checkboxItem {
+  width : 10px;
+  height: 10px;
+}
+
+.todoItem {
+  padding :10px;
+}
+.tagName {
+  font-size : 20px;
+  color : green;
+  width :100%;
+  border-bottom: 1px solid palegreen;
+}
+.todoList {
+  padding : 5px;
+}
+

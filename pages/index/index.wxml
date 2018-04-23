@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+  <view wx:for="{{todoList}}" id="contentSection">
+    <text class="tagName">{{item.tagName}}</text>
+    <view class="todoList" wx:for="{{item.list}}">
+      <lable class="todoItem"><checkbox color="palegreen"></checkbox>{{item.content}}</lable>
+    </view>
+  </view>
+  <view id="addSection">
+    <input type="text" id="addInput" bindinput='onInput' placeholder='请输入新待办'></input>
+    <button id="addButton" size="mini" bindtap='addTodo'>
+      <lable class="labelText">添加</lable>
+    </button>
+  </view>
+  
+</view>
