@@ -68,15 +68,33 @@ Page({
   },
   addTodo: function(e){
     var inputValue = this.data.inputValue;
-    var currentList = this.data.todoList[0].list;
+    var tag;
+    var currentList;
+    if( inputValue.indexOf('#') > 0 ){
+      tag = inputValue.substring(inputValue.indexOf('#')+1, inputValue.length);
+      inputValue = inputValue.substring(0, inputValue.indexOf('#'));
+    }
+    if( !tag ){
+      currentList = this.data.todoList[0].list;
+    }else{
+      this.data.todoList.forEach((item) => {
+        if ( item.tagName == tag ){
+          currentList = item.list;
+        }
+      })
+      if( !currentList ){
+        currentList = [];
+        this.data.todoList.push({
+          tagName : tag,
+          list : currentList
+        });
+        
+      }
+    }
+    
     currentList.push({ content: inputValue});
     this.setData({
-      todoList : [
-        {
-          tagName: '默认',
-          list: currentList
-        }
-      ]
+      todoList : this.data.todoList
     })
   },
   onInput : function(e){
@@ -85,3 +103,4 @@ Page({
     })
   }
 })
+
